@@ -1,0 +1,25 @@
+Let (
+   [
+      clientTime = Hour ( Get(CurrentTime) );
+      r = 55;
+      g = 91;
+      b = 128;
+      rn = 0;
+      gn = 30;
+      bn = 61;
+      rt = (r - rn) * (clientTime / 23);
+      gt = (g - gn) * (clientTime / 23);
+      bt = (b - bn) * (clientTime / 23);
+      charRepeat = 10; // replace this with your desired repeat count
+
+      // Using the While function to repeat the character
+      repeatedChars = While (
+         [ counter = 0; result = "" ];
+         counter < charRepeat;
+         [ counter = counter + 1; result = result & Char(9608) ];
+         result
+      )
+   ];
+   // Return the result as needed, for example:
+   TextColor ( repeatedChars ; RGB ( rt ; gt ; bt ) )
+)
